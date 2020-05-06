@@ -1,16 +1,68 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App">
-      <PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
-      <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="Models\" />
+    <Folder Include="Handler\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0"><PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
+<Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
+</PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Image 2020-05-02 at 11.00.40 AM.png" />
+    <None Remove="profile.jpg" />
+    <None Remove="profile2.jpg" />
+    <None Remove="NewFolder\a.jpg" />
+    <None Remove="89aa03ce-ffc5-4305-a1b0-6c1a972e0438profile.jpg" />
+    <None Remove="aca725b8-aabd-44b8-9517-1bd4db451f3fprofile.jpg" />
+    <None Remove="9430f47e-5db3-44ca-93d1-e657c4f8a83fprofile.jpg" />
+    <None Remove="4f41d8b0-7989-4686-ab66-e8d9c0fea3e9profile2.jpg" />
+    <None Remove="19fade4e-039d-4e81-b669-efe377faef1eprofile.jpg" />
+    <None Remove="5409c867-a370-4c0d-a541-d2fa4b8eae01profile.jpg" />
+    <None Remove="cc27a66d-c406-4eda-a157-bc8b3957d306profile.jpg" />
+    <None Remove="d07ba153-7569-4973-9efd-0fcf2abdf4bf" />
+    <None Remove="b4d7eb52-5e99-4eda-990f-d6a4d4844fcaprofile.jpg" />
+    <None Remove="f56a7969-4079-4c2b-bf85-0dba612a8263" />
+    <None Remove="f8d84dc5-1246-400a-a750-6745a5854120" />
+    <None Remove="57b29bb2-fb71-4552-a701-551537f76b80profile.jpg" />
+    <None Remove="7ab15186-a1e4-4a94-a079-58fc038a8f83" />
+    <None Remove="c2cc0154-ef5d-4dba-89e7-a9cd695149cfprofile.jpg" />
+    <None Remove="df94eeae-694d-4b59-8519-4ea63eb21da6" />
+    <None Remove="f70a2762-68e8-4c9e-a8fe-c5650ea87c03" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Handler\ImageHandler.cs" />
+    <Compile Remove="FileWriter\FileWriter.cs" />
+    <Compile Remove="Models\FileFromUri.cs" />
+    <Compile Remove="Models\FileBasePath.cs" />
+    <Compile Remove="Helpers\FileHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\0e046087-3b66-4aa2-8d47-668e628f76db_profile.jpg" />
+    <Content Remove="wwwroot\1ba26358-7524-4324-bd57-8f65f3fa3ae0_tree-736885_960_720.jpg" />
+    <Content Remove="wwwroot\0b71f0d8-4cac-426b-8eff-214799220f95_profile.jpg" />
+    <Content Remove="wwwroot\ad339ab6-a70c-4d89-92c9-601d720bebaa_profile2.jpg" />
+    <Content Remove="wwwroot\e836b824-fa82-4e4c-8a64-bc9c26d9d2c7_profile.jpg" />
+    <Content Remove="wwwroot\0c16e5e7-c032-4ea9-8134-2295206e056b_profile.jpg" />
+    <Content Remove="wwwroot\41d5ac78-2b07-461f-b71a-52484a9a64e3_profile.jpg" />
+    <Content Remove="wwwroot\8733ac28-f041-4d30-86f1-e68a06c23c9b_profile2.jpg" />
+    <Content Remove="wwwroot\960ec482-f89c-489f-a163-82f312579e96_profile2.jpg" />
+    <Content Remove="appsettings.json" />
+  </ItemGroup>
 </Project>

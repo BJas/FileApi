@@ -1,11 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 
 namespace FileApi.Models
 {
-    public class FileResult
+    /// <summary>
+    /// Результат выполнения запроса с кодом и описанием
+    /// </summary>
+    public class Result
     {
-        public IEnumerable<string> FileName { get; set; }
+        public Result()
+        {
+            Status = HttpStatusCode.InternalServerError;
+        }
 
+        public Result(HttpStatusCode status, string message = "")
+        {
+            Status = status;
+            Message = message;
+        }
+
+        public HttpStatusCode Status { get; set; } = HttpStatusCode.InternalServerError;
+
+        public string Message { get; set; }
     }
 }

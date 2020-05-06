@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
+using FileApi.Models;
+using Microsoft.AspNetCore.Http;
+
 namespace FileApi.Interface
 {
-    public class IFileWriter
+    public interface IFileWriter
     {
-        public IFileWriter()
-        {
-        }
+        Task<Result> UploadFile(FileModel file);
     }
 }

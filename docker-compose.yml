@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  fileapi:
+    image: fileapi
+    build:
+      context: .
+      dockerfile: FileApi/Dockerfile

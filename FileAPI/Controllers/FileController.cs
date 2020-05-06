@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FileApi.Handler;
+using FileApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,36 +16,18 @@ namespace FileApi.Controllers
     [Route("api/[controller]")]
     public class FileController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IFileHandler _fileHandler;
+
+        public FileController(IFileHandler fileHandler)
         {
-            return new string[] { "value1", "value2" };
+            _fileHandler = fileHandler;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
+        //POST api/file
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<Result> File([FromForm]FileModel file)
         {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return await _fileHandler.UploadFile(file);
         }
     }
 }
